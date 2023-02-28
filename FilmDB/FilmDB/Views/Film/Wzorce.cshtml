@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Wzorce";
+}
+
+<div>
+    <a class="btn btn-outline-warning" asp-action="Index">powrót do strony głównej</a>
+</div>
+<h2>Kompozyt</h2>
+
+<p class="font-italic">
+    to strukturalny wzorzec projektowy pozwalający komponować obiekty w struktury drzewiaste, a następnie
+    traktować te struktury jakby były osobnymi obiektami. Dzięki temu wzorcu projektowemu możemy z łatwością sterować wieloma obiektami.
+    Tworzone przez niego struktury są proste do zarządzania oraz rozbudowy, z łatwością możemy poszerzyć hierarchie o nowe komponenty.
+    Nie możemy jednak zapominać o wadach. Przygotowany przez nas kod może stać się zbyt ogólny co nie zawsze jest w pełni oczekiwane i
+    może przyczynić się do różnych problemów. Jednym z nich mogą być trudności w wykonywaniu pewnych operacji na konkretnym typie.
+</p>
+<h2>Obserwator</h2>
+
+<p class="font-italic">
+    wprowadza abstrakcyjne powiązania z podmiotem. Podmiot nie zna szczegółów działania żadnego z obserwatorów.
+    Może więc się okazać, że wobec wystąpienia szeregu przyrostowych zmian danych podmiotu zostanie wysłana do obserwatora seria
+    powtarzających się komunikatów, których obsługa wiązać się będzie ze zbyt dużym kosztem. Rozwiązaniem problemu będzie oczywiście
+    wprowadzenie pewnej dodatkowej logiki, tak by informacje o zmianach nie były wysyłane zbyt wcześnie lub zbyt często.
+    Inny problem występuje w przypadku, gdy zmiana danych podmiotu dokonywana jest przez pewne części kodu lub systemu zwane dalej klientami.
+    Pojawia się wtedy pytanie, kto powinien inicjować wysłanie komunikatu o zmianach. Jeśli odpowiedzialny będzie za to, jak dotychczas, sam podmiot,
+    to w przypadku wykonywania zmian przez kilku klientów znowu mogą pojawić się serie komunikatów o nieznacznych w istocie zmianach.
+    Można ich uniknąć, jeśli to klient będzie informował podmiot, ze należy wysłać komunikat. Jeśli jednak któryś z klientów "zapomni" o poinformowaniu podmiotu,
+    to program nie będzie już działał zgodnie z oczekiwaniami. Stosując wzorzec obserwator mona także zdefiniować kilka rodzajów komunikatów.
+    W tym celu interfejs obserwatora może definiować kilka różnych metod powiadomienia. Dzięki temu w pewnych sytuacjach obserwator będzie mógł ignorować niektóre z nich.
+    Przykładem zastosowania mogą być tu dane statystyczne oraz ich reprezentacje w postaci np. arkusza danych, wykresu słupkowego, wykresu kołowego, itp.
+    Przy zastosowaniu wzorca Obserwator oddzielamy logiczną strukturę danych od jej reprezentacji, unikając trwałych połączeń między klasami i umożliwiając tym
+    samym ponowne wykorzystanie poszczególnych klas. Jednocześnie unikamy nieczytelnego i zbyt mocno rozbudowanego kodu w pojedynczej klasie.
+</p>
+
+<h2>Metoda wytwórcza</h2>
+<p class="font-italic">
+    to wzorzec projektowy, który pozwala na oddzielenie procesu tworzenia obiektów od ich reprezentacji, co umożliwia klientom używanie tych obiektów
+    bez konieczności wiedzy o sposobie ich tworzenia. Wzorzec ten jest szczególnie przydatny, gdy proces tworzenia obiektów jest skomplikowany lub gdy
+    istnieje potrzeba tworzenia obiektów z różnymi typami reprezentacji. W .NET Core można zastosować wzorzec metody wytwórczej poprzez utworzenie interfejsu
+    lub klasy abstrakcyjnej, która definiuje metodę lub metody służące do tworzenia obiektów, oraz utworzenie konkretnych klas implementujących te metody dla
+    każdego typu obiektu. Klient może następnie używać obiektów za pomocą interfejsu lub klasy abstrakcyjnej bez konieczności wiedzy o sposobie ich tworzenia.
+</p>
+<h2>Dekorator</h2>
+<p class="font-italic">
+    to hierarchiczny wzorzec typu, który tworzy funkcjonalność na każdym poziomie,
+    używając kompozycji z podobnych typów danych. Opakowujemy obiekty aby dodać im nową funkcjonalność.
+    Wzorzec projektowy dekoratora pozwala nam przypisać obowiązki do obiektu dynamicznie, bez wpływu na klasę
+    Dekorator przestrzega również zasady pojedynczej odpowiedzialności, która stanowi,.
+    że każda klasa powinna odpowiadać za pojedynczą część funkcjonalności dostarczanej przez oprogramowanie,.
+    a odpowiedzialność ta powinna być całkowicie ujęta w klasie. Kontrolujemy, które elementy uzupełniają twój obiekt,
+    niekoniecznie próbując go zastąpić, tak jak w przypadku dziedziczenia. Aby to osiągnąć, wykorzystuje kompozycję i
+    dziedziczenie. Możesz komponować zachowanie dynamicznie, używając jednej z podklas, które zdobią twój obiekt.
+    Każde nowe opakowanie/udekorowanie to nowa klasa. Powoduje to tworzenie dużo małych klas
+</p>
+<h2>Strategia</h2>
+<p class="font-italic">
+    jest jednym z popularniejszych wzorców projektowych i może być stosowana wszędzie tam, gdzie jest konieczna implementacja
+    kilku różnych wersji algorytmów, realizujących ten sam lub podobny typ zadania. Każdy z tych algorytmów jest nazywana strategią,
+    która następnie jest używana lub zmieniana przez klienta. Zadaniem wzorca jest zdefiniowanie w oddzielnych klasach grup algorytmów
+    z danej rodziny. Taka konstrukcja kodu powoduje możliwość wymiennego użycia tych algorytmów (również w trakcie działania aplikacji),
+    ułatwia rozszerzanie funkcjonalności, ogranicza użycie instrukcji warunkowych oraz ułatwia testowanie poszczególnych rozwiązań algorytmów.
+    Wzorzec strategii umożliwia porządkuje kod aplikacji. Umożliwia rozdzielenie poszczególnych części programu, ułatwia jego utrzymanie,
+    zmiany i rozszerzanie o nowe wersje.
+</p>

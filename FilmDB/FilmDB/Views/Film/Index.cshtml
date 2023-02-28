@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FilmDB.Models.FilmModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>
+    Lista Filmów <span class="badge badge-secondary">Alpha 0.99</span>
+</h1>
+
+<p>
+    <a asp-action="Add" class="btn btn-outline-success">Dodaj film</a>
+</p>
+<table class="table table-secondary" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ID">Edytuj</a> |
+                    <a class="btn btn-danger" asp-action="Remove" asp-route-id="@item.ID">Usun</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
